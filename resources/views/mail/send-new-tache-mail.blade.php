@@ -5,7 +5,7 @@
 Une nouvelle tache a été créée, voici les détails :
 
 {{-- *Nom:* __{{$tache->nom}}__ --}}
-*Description:* __{{$demande->description}}__
+{{-- *Description:* __{{$demande->description}}__ --}}
 
 {{-- @component('mail::button', ['url' => route('tache.show',compact('tache'))])
 Afficher la tache

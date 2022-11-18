@@ -42,6 +42,7 @@ class DemandeController extends Controller
         // validation du formulaire
         $request->validate([
             'description'=>'required',
+            'objet'=>'required',
         ]);
         // instanciation de tache à partir du formulaire
         $demande = new Demande($request->all());

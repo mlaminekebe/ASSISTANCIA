@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('demandes', function (Blueprint $table) {
-            $table->id();
-            $table->string('objet');
-            $table->text('description');
-            $table->integer('traitement')->default(0);
-            $table->timestamps();
+        Schema::table('demandes', function (Blueprint $table) {
+            $table->unsignedInteger('user_admin_id')->nullable();
+            $table->foreign('user_admin_id')->references('id')->on('users');
         });
     }
 
@@ -29,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('demandes');
+        Schema::table('demandes', function (Blueprint $table) {
+            $table->foreign('user_admin_id')->references('id')->on('users')->onDelete();
+        });
     }
 };
+

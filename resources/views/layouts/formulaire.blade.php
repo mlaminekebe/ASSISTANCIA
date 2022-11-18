@@ -56,14 +56,16 @@
             <form action="{{ route('demande.store') }}" method="POST">
                 @csrf
                 <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label">objet</label>
+                  <input type="text" class="form-control" name="objet" id="exampleInputEmail" >
+                  <div id="emailHelp" class="form-text">essayer d'etre le plus explicite possible</div>
+                </div>
+                <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">votre reclmation</label>
                   <input type="text" class="form-control" name="description" id="exampleInputEmail1" aria-describedby="emailHelp">
                   <div id="emailHelp" class="form-text">essayer d'etre le plus explicite possible</div>
                 </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
+
                 <button type="submit" class="btn btn-primary">envoyer</button>
               </form>
         </div>
