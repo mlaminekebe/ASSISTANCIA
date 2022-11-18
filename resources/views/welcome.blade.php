@@ -50,7 +50,14 @@
 
             <h1>ASSISTANCIA GESTION DES RECLATIONS</h1>
             <div>
-                <button type="button" class="btn btn-primary"><a href="/form">remplir</a></button>
+                @if (Route::has('login'))
+                @auth
+                    <button type="button" class="btn btn-primary"><a href="/form/{{Auth::user()->id}}">remplir</a></button>
+                @endauth
+                @else
+                    <button type="button" class="btn btn-primary"><a href="">remplir</a></button>
+                @endif
+
 
             </div>
 

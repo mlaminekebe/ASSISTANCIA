@@ -5,7 +5,7 @@
 
     <h4>mes demandes</h4>
     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Launch demo modal
+       FAIRE UNE RECLAMATION
       </button>
 
     <table class="table">
@@ -13,27 +13,39 @@
         <thead>
           <tr>
             <th scope="col">NUMERO</th>
-            <th scope="col">STATUS</th>
-            <th scope="col">ACTION</th>
+            <th scope="col">objet</th>
+            <th scope="col">TRAITEMENT</th>
+            <th scope="col">details</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
+            @php
+                $i=1;
+            @endphp
+            @foreach ($demandes as $demande)
+            <tr>
+            <th scope="row">{{$i++}}</th>
+            <td>{{$demande->objet}}</td>
             <td>
-                <button type="button" class="btn btn-primary">Primary</button>
-                <button type="button" class="btn btn-danger">Danger</button>
+
+                @if ($demande->traitement==0)
+                <span class="badge bg-warning">en attente</span>
+                @elseif ($demande->traitement==1)
+                <span class="badge bg-primary">en cours de traitement</span>
+                @elseif ($demande->traitement==3)
+                <span class="badge bg-success">traitee</span>
+                @elseif($demande->traitement==4)
+                <span class="badge bg-danger">refuser</span>
+                @endif
+
             </td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-                <td>
-                    <button type="button" class="btn btn-primary">Primary</button>
-                    <button type="button" class="btn btn-danger">Danger</button>
-                </td>
-          </tr>
+            <td>
+                <a href="{{ route('demande.show',compact('demande')) }}" class="btn btn-primary"><button type="button" class="btn btn-primary">voir</button></a>
+
+            </td>
+            @endforeach
+
+
         </tbody>
       </table>
 
@@ -53,7 +65,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="{{ route('demande.store') }}" method="POST">
+            <form action="{{ route('demande.store')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail" class="form-label">objet</label>

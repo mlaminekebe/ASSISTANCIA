@@ -7,7 +7,6 @@ use App\Models\Demande;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-
 class DemandeController extends Controller
 {
     /**
@@ -15,10 +14,17 @@ class DemandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($request)
     {
-        // $taches = Demande::all('user_id',U->id);
-        // return view('tache.list',compact('taches'));
+        // dd($request->id);
+
+    }
+
+    //voire toute les taches de l'utilisateur connecter
+    public function index2($id)
+    {
+        $demandes = Demande::all()->where('user_id',$id);
+        return view('demande.formulaire',compact('demandes'));
     }
 
     /**
@@ -39,6 +45,7 @@ class DemandeController extends Controller
      */
     public function store(Request $request)
     {
+
         // validation du formulaire
         $request->validate([
             'description'=>'required',
@@ -48,9 +55,10 @@ class DemandeController extends Controller
         $demande = new Demande($request->all());
         // identifier l'id d'un utilisateur dans phpMyAdmin et l'associer à l'utilisateur
         $demande->user_id =  $request->user()->id;
+        // dd($demande->user->email);
         $demande->saveOrFail();
         Mail::to(User::all()->where('role',1))->send(new SendNewTacheMail($demande));
-        return view('layouts.formulaire');
+        return redirect('form/'.$request->user()->id);
     }
 
     /**
