@@ -69,7 +69,7 @@ class DemandeController extends Controller
      */
     public function show(Demande $demande)
     {
-        //
+        return view('demande.show',compact('demande'));
     }
 
     /**
