@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandeController;
+use App\Http\Controllers\AdimController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,5 +34,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get("/demande",function(){
 //     return view('demande.list');
 // });
-Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('name');
+Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form');
+Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin')->middleware('isAdmin');
 
+Route::get('consulter/{id}', [AdimController::class, 'show']);

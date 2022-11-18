@@ -1,8 +1,8 @@
 @component('mail::message')
-{{-- # Nouvelle tache - {{$demande->nom}} --}}
+# Nouvelle demande - {{$demande->objet}}
 
-{{-- Bonjour {{$demande->user->name}}, --}}
-Une nouvelle tache a été créée, voici les détails :
+*Bonjour* {{User::find('name')}},
+une reclamation a ete faite
 
 {{-- *Nom:* __{{$tache->nom}}__ --}}
 {{-- *Description:* __{{$demande->description}}__ --}}

@@ -14,9 +14,10 @@ class DemandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($request)
+    public function index()
     {
-        // dd($request->id);
+        $lists = Demande::all()->where('traitement',0);
+        return view('admin.list',compact('lists'));
 
     }
 

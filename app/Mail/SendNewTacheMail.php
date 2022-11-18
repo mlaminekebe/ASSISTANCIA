@@ -12,15 +12,16 @@ use Illuminate\Queue\SerializesModels;
 class SendNewTacheMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $demande;
+    
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($demande)
     {
-        //
+        $this->demande=$demande;
     }
 
     /**
@@ -31,7 +32,7 @@ class SendNewTacheMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Send New Tache Mail',
+            subject: "Nouvelle demande - {$this->demande->objet}",
         );
     }
 
