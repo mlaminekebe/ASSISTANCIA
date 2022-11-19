@@ -1,7 +1,6 @@
 @component('mail::message')
 # Nouvelle demande - {{$demande->objet}}
 
-{{-- *Bonjour* {{User::find('name')}}, --}}
 une reclamation a ete faite
 
 {{-- *Nom:* __{{$tache->nom}}__ --}}

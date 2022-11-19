@@ -21,10 +21,15 @@
             <td>{{$list->objet}}</td>
 
             <td>
-                <a href="" class="btn btn-primary"><button type="button" class="btn btn-primary">voir</button></a>
+                @if ($list->traitement==1)
+                <a href=""> <button class="btn btn-success">VALIDER</button></a>
+                <a href="rejeter/{{$list->id}}"> <button class="btn btn-danger">REJETER</button></a>
+                @else
+                <a href=""> <button class="btn btn-warning" disabled>fini</button></a>
+                @endif
+
             </td>
             @endforeach
-
 
         </tbody>
       </table>

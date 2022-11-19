@@ -32,9 +32,9 @@
                 <span class="badge bg-warning">en attente</span>
                 @elseif ($demande->traitement==1)
                 <span class="badge bg-primary">en cours de traitement</span>
-                @elseif ($demande->traitement==3)
+                @elseif ($demande->traitement==2)
                 <span class="badge bg-success">traitee</span>
-                @elseif($demande->traitement==4)
+                @elseif($demande->traitement==3)
                 <span class="badge bg-danger">refuser</span>
                 @endif
 
@@ -45,7 +45,7 @@
             </td>
             {{-- <br> --}}
             </tr>
-            
+
             @endforeach
 
 
@@ -77,7 +77,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">votre reclmation</label>
-                  <input type="text" class="form-control" name="description" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <textarea type="text" class="form-control" name="description" id="exampleInputEmail1" aria-describedby="emailHelp"><
                   <div id="emailHelp" class="form-text">essayer d'etre le plus explicite possible</div>
                 </div>
 

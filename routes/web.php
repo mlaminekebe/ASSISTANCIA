@@ -27,18 +27,11 @@ Auth::routes();
 
 Route::resource('/demande',DemandeController::class);
 // Route::resource('/admin',AdimController::class);
-
-// Route::get('form',[DemandeController::class, 'index2'])->name('form');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get("/demande",function(){
-//     return view('demande.list');
-// });
 Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form');
 Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin')->middleware('isAdmin');
 
-Route::get('consulter/{id}', [AdimController::class, 'show1']);
-// Route::post('change/{id}',  [AdimController::class, 'update']);
-
-// Route::get('change/{id1}{id2}',[AdimController::class, 'update']);
+Route::get('/consulter/{id}', [AdimController::class, 'show1']);
+Route::get('/show', [AdimController::class, 'show']);
+Route::get('/rejeter/{id}',[AdimController::class, 'rejeter']);
+Route::post('sendMailRefus',[AdimController::class, 'sendMailRefus']);

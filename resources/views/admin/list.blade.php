@@ -4,6 +4,7 @@
 
 
 <div class="container">
+    <a href="show"><button class="btn btn-secondary">liste des traitements en cours</button></a>
     <h4>listes de tous les reclamations</h4>
     <table class="table">
 
@@ -24,12 +25,10 @@
             <td>{{$list->objet}}</td>
 
             <td>
-                <a href="consulter/{{$list->id}}" class="btn btn-primary"><button type="button" class="btn btn-primary">voir</button></a>
+                <a href="consulter/{{$list->id}}" class="btn btn-primary"><button type="button" class="btn btn-primary">CLIQUEZ POUR TRAITER LA DEMANDE</button></a>
 
             </td>
             @endforeach
-
-
         </tbody>
       </table>
 

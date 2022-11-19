@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Demande;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,18 +48,20 @@ class AdimController extends Controller
      */
     public function show1(Request $request)
     {
-        // dd($request->id);
         $demande=Demande::find($request->id);
         $demande->user_admin_id=Auth::user()->id;
         $demande->traitement=1;
         $demande->save();
-        // dd($demande->user_admin_id);
-        // $produits=DB::table('produits')->where('id',$id)->first();
+        // return view('listAdmin');
         return view('admin.show',compact('demande'));
     }
-    public function show($id)
+    public function show()
     {
-        //
+
+        $lists=Demande::all()->where('user_admin_id', Auth::user()->id);
+        return view('admin.tacheAdmin', compact('lists'));
+        // dd($list);
+
     }
 
     /**
@@ -67,9 +70,12 @@ class AdimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function rejeter($id)
     {
-        //
+        $demandes=Demande::find($id);
+        //  dd($demandes);
+        return view('admin.refus',compact('demandes'));
+
     }
 
     /**
@@ -79,9 +85,13 @@ class AdimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id1,$id2)
+    public function sendMailRefus(Request $request)
     {
-        dd($id1);
+        $demande=Demande::find($request->id);
+        $demande->traitement=3;
+        $demande->save();
+        return redirect('show');
+        // dd($demande->objet);
     }
 
     /**

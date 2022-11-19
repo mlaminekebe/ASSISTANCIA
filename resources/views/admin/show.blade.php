@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <h2>vous etes charger de traiter cette reclamation</h2>
     <div class="card">
         <h5 class="card-header">{{$demande->objet}}</h5>
         <div class="card-body">
@@ -13,7 +14,7 @@
             <button type="submit" class="btn btn-success">TRAITER LA DEMANDE</button>
         </form>
           @elseif ($demande->traitement==1 || $demande->traitement==2)
-          <a href=""> <button class="btn btn-success">VALIDER</button></a>
+          <a href="" > <button class="btn btn-success">VALIDER</button></a>
           <a href=""> <button class="btn btn-danger">REJETER</button></a>
 
           @endif
@@ -31,4 +32,7 @@
       </div>
 
 </div>
+
+
+
 @endsection
