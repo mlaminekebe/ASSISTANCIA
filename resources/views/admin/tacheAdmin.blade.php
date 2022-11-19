@@ -22,10 +22,10 @@
 
             <td>
                 @if ($list->traitement==1)
-                <a href=""> <button class="btn btn-success">VALIDER</button></a>
+                <a href="valider/{{$list->id}}"> <button class="btn btn-success">VALIDER</button></a>
                 <a href="rejeter/{{$list->id}}"> <button class="btn btn-danger">REJETER</button></a>
                 @else
-                <a href=""> <button class="btn btn-warning" disabled>fini</button></a>
+                <button class="btn btn-warning" disabled>fini</button>
                 @endif
 
             </td>

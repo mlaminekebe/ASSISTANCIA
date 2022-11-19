@@ -25,8 +25,8 @@
             <td>{{$list->objet}}</td>
 
             <td>
-                <a href="consulter/{{$list->id}}" class="btn btn-primary"><button type="button" class="btn btn-primary">CLIQUEZ POUR TRAITER LA DEMANDE</button></a>
-
+                <a href="voir/{{$list->id}}" ><button type="button" class="btn btn-primary">VOIR DETAILS</button></a>
+                <a href="consulter/{{$list->id}}"> <button type="button" class="btn btn-success">TRAITER LA RECLAMATION</button> </a>
             </td>
             @endforeach
         </tbody>

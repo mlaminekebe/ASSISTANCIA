@@ -32,6 +32,8 @@ Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form');
 Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin')->middleware('isAdmin');
 
 Route::get('/consulter/{id}', [AdimController::class, 'show1']);
+Route::get('/voir/{id}', [AdimController::class, 'voir']);
 Route::get('/show', [AdimController::class, 'show']);
 Route::get('/rejeter/{id}',[AdimController::class, 'rejeter']);
-Route::post('sendMailRefus',[AdimController::class, 'sendMailRefus']);
+Route::post('/sendMailRefus',[AdimController::class, 'sendMailRefus']);
+Route::get('/valider/{id}', [AdimController::class,'valider']);

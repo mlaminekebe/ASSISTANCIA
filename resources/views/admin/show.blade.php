@@ -8,11 +8,10 @@
         <div class="card-body">
           <h4 class="card-title">{{$demande->description}}</h4>
           @if ($demande->traitement==0)
-          {{-- <a href=""> <button class="btn btn-primary">TRAITE LA DEMANDE</button></a> --}}
-          <form class="d-inline" action="" method="post">
-            @csrf
-            <button type="submit" class="btn btn-success">TRAITER LA DEMANDE</button>
-        </form>
+          {{-- <a href="{{ ('consulter', compact('demande')) }}"> <button class="btn btn-primary">TRAITE LA DEMANDE</button></a> --}}
+
+                <button class="btn btn-warning">EN ATTENTE DE TRAITEMENT</button>
+
           @elseif ($demande->traitement==1 || $demande->traitement==2)
           <a href="" > <button class="btn btn-success">VALIDER</button></a>
           <a href=""> <button class="btn btn-danger">REJETER</button></a>

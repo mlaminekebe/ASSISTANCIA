@@ -35,7 +35,7 @@
                 @elseif ($demande->traitement==2)
                 <span class="badge bg-success">traitee</span>
                 @elseif($demande->traitement==3)
-                <span class="badge bg-danger">refuser</span>
+                <span class="badge bg-danger">rejetee</span>
                 @endif
 
             </td>

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Rejeter;
+use App\Mail\Traiter;
 use App\Models\Demande;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class AdimController extends Controller
 {
@@ -35,9 +38,10 @@ class AdimController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function voir($id)
     {
-        //
+        $demande=Demande::find($id);
+        return view('admin.show',compact('demande'));
     }
 
     /**
@@ -53,7 +57,7 @@ class AdimController extends Controller
         $demande->traitement=1;
         $demande->save();
         // return view('listAdmin');
-        return view('admin.show',compact('demande'));
+        return redirect('listAdmin');
     }
     public function show()
     {
@@ -90,6 +94,8 @@ class AdimController extends Controller
         $demande=Demande::find($request->id);
         $demande->traitement=3;
         $demande->save();
+        // dd($request->motif);
+        Mail::to($demande->user)->send(new Rejeter($demande,$request->motif));
         return redirect('show');
         // dd($demande->objet);
     }
@@ -100,8 +106,13 @@ class AdimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function valider($id)
     {
-        //
+        $demande=Demande::find($id);
+        $demande->traitement=2;
+        $demande->save();
+        Mail::to($demande->user)->send(new Traiter($demande));
+        return redirect('show');
+
     }
 }

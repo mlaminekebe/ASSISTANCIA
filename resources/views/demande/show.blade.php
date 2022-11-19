@@ -10,10 +10,10 @@
           <h1><span class="badge bg-warning">en attente</span></h1>
           @elseif ($demande->traitement==1)
           <h1><span class="badge bg-primary">en cours de traitement</span></h1>
-          @elseif ($demande->traitement==3)
+          @elseif ($demande->traitement==2)
           <h1><span class="badge bg-success">traitee</span></h1>
-          @elseif($demande->traitement==4)
-          <h1><span class="badge bg-danger">refuser</span></h1>
+          @elseif($demande->traitement==3)
+          <h1><span class="badge bg-danger">rejetee</span></h1>
           @endif
         </div>
       </div>
