@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,18 @@
         <h5 class="card-header">{{$demande->objet}}</h5>
         <div class="card-body">
           <h4 class="card-title">{{$demande->description}}</h4>
-        <button class="btn btn-success">TRAITE LA DEMANDE</button>
+          @if ($demande->traitement==0)
+          {{-- <a href=""> <button class="btn btn-primary">TRAITE LA DEMANDE</button></a> --}}
+          <form class="d-inline" action="" method="post">
+            @csrf
+            <button type="submit" class="btn btn-success">TRAITER LA DEMANDE</button>
+        </form>
+          @elseif ($demande->traitement==1 || $demande->traitement==2)
+          <a href=""> <button class="btn btn-success">VALIDER</button></a>
+          <a href=""> <button class="btn btn-danger">REJETER</button></a>
+
+          @endif
+
         </div>
       </div>
       <div class="text-center">

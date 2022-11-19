@@ -81,7 +81,7 @@ class DemandeController extends Controller
      */
     public function edit(Demande $demande)
     {
-        //
+        dd($demande->id);
     }
 
     /**

@@ -23,7 +23,7 @@
                 $i=1;
             @endphp
             @foreach ($demandes as $demande)
-            <tr>
+            <tr class="shadow-lg p-3 mb-5 bg-body rounded">
             <th scope="row">{{$i++}}</th>
             <td>{{$demande->objet}}</td>
             <td>
@@ -43,6 +43,9 @@
                 <a href="{{ route('demande.show',compact('demande')) }}" class="btn btn-primary"><button type="button" class="btn btn-primary">voir</button></a>
 
             </td>
+            {{-- <br> --}}
+            </tr>
+            
             @endforeach
 
 

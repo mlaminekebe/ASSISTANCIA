@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Demande;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdimController extends Controller
 {
@@ -44,11 +45,20 @@ class AdimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show1(Request $request)
     {
-        $demande=Demande::find($id);
+        // dd($request->id);
+        $demande=Demande::find($request->id);
+        $demande->user_admin_id=Auth::user()->id;
+        $demande->traitement=1;
+        $demande->save();
+        // dd($demande->user_admin_id);
         // $produits=DB::table('produits')->where('id',$id)->first();
         return view('admin.show',compact('demande'));
+    }
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -69,9 +79,9 @@ class AdimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id1,$id2)
     {
-        //
+        dd($id1);
     }
 
     /**

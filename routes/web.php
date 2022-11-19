@@ -26,6 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::resource('/demande',DemandeController::class);
+// Route::resource('/admin',AdimController::class);
 
 // Route::get('form',[DemandeController::class, 'index2'])->name('form');
 
@@ -37,4 +38,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form');
 Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin')->middleware('isAdmin');
 
-Route::get('consulter/{id}', [AdimController::class, 'show']);
+Route::get('consulter/{id}', [AdimController::class, 'show1']);
+// Route::post('change/{id}',  [AdimController::class, 'update']);
+
+// Route::get('change/{id1}{id2}',[AdimController::class, 'update']);

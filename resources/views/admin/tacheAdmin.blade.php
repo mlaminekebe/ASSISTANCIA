@@ -1,10 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
-
-
 <div class="container">
-    <h4>listes de tous les reclamations</h4>
+    <h4>mes taches</h4>
     <table class="table">
 
         <thead>
@@ -24,8 +21,7 @@
             <td>{{$list->objet}}</td>
 
             <td>
-                <a href="consulter/{{$list->id}}" class="btn btn-primary"><button type="button" class="btn btn-primary">voir</button></a>
-
+                <a href="" class="btn btn-primary"><button type="button" class="btn btn-primary">voir</button></a>
             </td>
             @endforeach
 
@@ -34,5 +30,4 @@
       </table>
 
 </div>
-
 @endsection
