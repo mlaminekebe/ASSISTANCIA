@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\AdimController;
+use App\Http\Controllers\AssistanciaController;
+use App\Models\Demande;
+use Spatie\LaravelIgnition\Solutions\SolutionProviders\ViewNotFoundSolutionProvider;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,3 +41,5 @@ Route::get('/show', [AdimController::class, 'show']);
 Route::get('/rejeter/{id}',[AdimController::class, 'rejeter']);
 Route::post('/sendMailRefus',[AdimController::class, 'sendMailRefus']);
 Route::get('/valider/{id}', [AdimController::class,'valider']);
+Route::get('index', [AssistanciaController::class,'nombre']);
+Route::get('/users', [AssistanciaController::class,'allUsers']);

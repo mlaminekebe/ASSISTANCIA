@@ -77,7 +77,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">votre reclmation</label>
-                  <textarea type="text" class="form-control" name="description" id="exampleInputEmail1" aria-describedby="emailHelp"><
+                  <textarea type="text" class="form-control" name="description" id="exampleInputEmail1" aria-describedby="emailHelp"></textarea>
                   <div id="emailHelp" class="form-text">essayer d'etre le plus explicite possible</div>
                 </div>
 
