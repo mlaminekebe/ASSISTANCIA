@@ -32,8 +32,8 @@ Auth::routes();
 
 Route::resource('/demande',DemandeController::class);
 // Route::resource('/admin',AdimController::class);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');;
+Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form')->middleware('auth');
 Route::middleware('isAdmin')->group(function () {
     Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin');
     Route::get('/consulter/{id}', [AdimController::class, 'show1']);
@@ -48,5 +48,6 @@ Route::middleware('isAssistancia')->group(function () {
     Route::get('index', [AssistanciaController::class,'nombre']);
     Route::get('/users', [AssistanciaController::class,'allUsers']);
     Route::get('information/{id}',[AssistanciaController::class, 'infoUser']);
+    Route::get('/faireAdmis/{id}',[AssistanciaController::class, 'faireAdmis']);
 });
 

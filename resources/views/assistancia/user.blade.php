@@ -26,16 +26,17 @@
                             <th>ordre</th>
                             <th>nom</th>
                             <th>email</th>
-                            {{-- <th>Age</th>
-                            <th>Start date</th>
+                            <th>definir admin</th>
+                            {{--<th>Start date</th>
                             <th>Salary</th> --}}
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
+                            <th>odre</th>
+                            <th>nom</th>
+                            <th>email</th>
+                            <th>definir admin</th>
                             {{-- <th>Age</th>
                             <th>Start date</th>
                             <th>Salary</th> --}}
@@ -51,6 +52,12 @@
                             <td>{{$i++}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
+                            <td>
+                                <a href="faireAdmis/{{$user->id}}">
+                                    <button class="btn btn-success">RENDRE AMDIS</button>
+
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
 

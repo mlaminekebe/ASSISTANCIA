@@ -25,7 +25,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     </head>
+
     <body class="antialiased">
+      
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -77,7 +79,7 @@
                 </div>
             </header> --}}
 
-            <h1>ASSISTANCIA GESTION DES RECLATIONS</h1>
+            {{-- <h1>ASSISTANCIA GESTION DES RECLATIONS</h1>
             <div>
                 @if (Route::has('login'))
                 @auth
@@ -88,7 +90,7 @@
                 @endif
 
 
-            </div>
+            </div> --}}
 
 
         </div>

@@ -34,4 +34,11 @@ class AssistanciaController extends Controller
         dd($nbrtraitement);
         return view('assistancia.infoUser',compact('nbrtraitement','admin'));
     }
+
+    public function faireAdmis($id){
+        $users=User::find($id);
+        $users->role=1;
+        $users->save();
+        return redirect('/users');
+    }
 }

@@ -23,7 +23,6 @@ class isAssistancia
             if($request->user()->role==0){
                 return redirect('form/'.$request->user()->id);
             }
-        return redirect('home');
         }
 
         return $next($request);
