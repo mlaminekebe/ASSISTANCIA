@@ -41,6 +41,7 @@ class AdimController extends Controller
     public function voir($id)
     {
         $demande=Demande::find($id);
+
         return view('admin.show',compact('demande'));
     }
 
@@ -63,7 +64,11 @@ class AdimController extends Controller
     {
 
         $lists=Demande::all()->where('user_admin_id', Auth::user()->id);
-        return view('admin.tacheAdmin', compact('lists'));
+        $nbrAttente=Demande::all()->where('traitement', 1)->where('user_admin_id',Auth::user()->id)->count();
+        $nbrTraitee=Demande::all()->where('traitement', 2)->where('user_admin_id',Auth::user()->id)->count();
+        $nbrRejetee=Demande::all()->where('traitement', 3)->where('user_admin_id',Auth::user()->id)->count();
+        // dd($nbrAttente);
+        return view('admin.tacheAdmin', compact('lists','nbrAttente','nbrTraitee','nbrRejetee'));
         // dd($list);
 
     }

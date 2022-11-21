@@ -7,6 +7,7 @@ use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\AdimController;
 use App\Http\Controllers\AssistanciaController;
 use App\Models\Demande;
+use App\Models\User;
 use Spatie\LaravelIgnition\Solutions\SolutionProviders\ViewNotFoundSolutionProvider;
 
 /*
@@ -33,13 +34,19 @@ Route::resource('/demande',DemandeController::class);
 // Route::resource('/admin',AdimController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/form/{id}',[DemandeController::class, 'index2'])->name('form');
-Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin')->middleware('isAdmin');
+Route::middleware('isAdmin')->group(function () {
+    Route::get('/listAdmin',[DemandeController::class, 'index'])->name('listAdmin');
+    Route::get('/consulter/{id}', [AdimController::class, 'show1']);
+    Route::get('/voir/{id}', [AdimController::class, 'voir']);
+    Route::get('/show', [AdimController::class, 'show']);
+    Route::get('/rejeter/{id}',[AdimController::class, 'rejeter']);
+    Route::post('/sendMailRefus',[AdimController::class, 'sendMailRefus']);
+    Route::get('/valider/{id}', [AdimController::class,'valider']);
+});
 
-Route::get('/consulter/{id}', [AdimController::class, 'show1']);
-Route::get('/voir/{id}', [AdimController::class, 'voir']);
-Route::get('/show', [AdimController::class, 'show']);
-Route::get('/rejeter/{id}',[AdimController::class, 'rejeter']);
-Route::post('/sendMailRefus',[AdimController::class, 'sendMailRefus']);
-Route::get('/valider/{id}', [AdimController::class,'valider']);
-Route::get('index', [AssistanciaController::class,'nombre']);
-Route::get('/users', [AssistanciaController::class,'allUsers']);
+Route::middleware('isAssistancia')->group(function () {
+    Route::get('index', [AssistanciaController::class,'nombre']);
+    Route::get('/users', [AssistanciaController::class,'allUsers']);
+    Route::get('information/{id}',[AssistanciaController::class, 'infoUser']);
+});
+

@@ -78,7 +78,7 @@
                                     <?php
                                     echo 'DERNIERE MISE A JOURS - ';
                                         // date_default_timezone_set('Europe/Paris');
-                                        $date = date('D-H-Y h:i:s');
+                                        $date = date('D-M-Y h:i:s');
                                         echo $date;
                                         ?>
                                 </div>
@@ -96,9 +96,10 @@
                                             <th>ordre</th>
                                             <th>nom</th>
                                             <th>email</th>
-                                            {{-- <th>d</th>
-                                            <th>Start date</th>
+                                            <th>voirs details</th>
+                                             {{--<th>Start date</th>
                                             <th>Salary</th> --}}
+
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -107,9 +108,9 @@
                                             <th>ordre</th>
                                             <th>nom</th>
                                             <th>email</th>
-                                            {{-- <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th> --}}
+                                            <th>voirs details</th>
+                                            {{--<th>Start date</th>
+                                           <th>Salary</th> --}}
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -117,15 +118,19 @@
                                             $i=1;
                                         @endphp
                                         @foreach ($admins as $admin)
+
                                         <tr>
-                                            <a href="index">
                                             <td>{{$i++}}</td>
 
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->email}}</td>
-                                        </a>
-                                            {{-- <td></td>
-                                            <td>2011/04/25</td>
+                                             <td>
+                                                <a href="information/{{$admin->id}}">
+                                                    <button  class="btn btn-success">voir details</button>
+
+                                                </a>
+                                             </td>
+                                            {{--<td>2011/04/25</td>
                                             <td>$320,800</td> --}}
                                         </tr>
                                         @endforeach
