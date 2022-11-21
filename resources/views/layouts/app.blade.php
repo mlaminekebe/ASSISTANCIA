@@ -22,44 +22,29 @@
 </head>
 <body >
     <div id="app" >
-        <nav class="navbar navbar-expand-md navbar-light bg-info shadow-sm" >
-            <div class="container" >
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'ASSISTANCIA') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm"  id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="text-light " style="text-decoration: none" href="/">
+                    <h1>ASSISTANCIA</h1></a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
 
-                    </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        @if (Route::has('login'))
+                        {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> --}}
+                            @auth
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" style="text-decoration: none" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   <h4>
                                     {{ Auth::user()->name }}
+
+                                   </h5>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item " href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('DECONNEXION') }}
@@ -70,11 +55,37 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                                {{-- <li class="nav-item">
+                                    <button type="button" class="btn btn--primary">
+                                        <a href="{{ url('/home') }}" class="nav-link">Home</a>
+                                    </button>
+                                </li> --}}
+                        @else
+                            <li class="nav-item">
+                                <button type="button" class="btn btn--primary">
+                                    <a href="{{ route('login') }}" class="nav-link text-light"><h4>connecter</h4></a>
+                                </button>
+                            </li>
+
+                            @if (Route::has('register'))
+                            <li class="nav-item">
+                                <button type="button" class="btn btn--primary">
+                                    <a href="{{ route('register') }}" class="nav-link text-light"><h4>s'inscrire</h4></a>
+
+                                    </button>
+                            </li>
+
+
+                                @endif
+                            @endauth
+                        {{-- </div> --}}
+                    @endif
                     </ul>
                 </div>
             </div>
         </nav>
+
+
 
         <main class="py-4">
             @yield('content')
