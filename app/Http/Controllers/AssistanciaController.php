@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Demande;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AssistanciaController extends Controller
@@ -14,6 +15,12 @@ class AssistanciaController extends Controller
         $nbrEncours=Demande::where('traitement', 1)->count();
         $nbrTraitee=Demande::where('traitement', 2)->count();
         $nbrRejetee=Demande::where('traitement', 3)->count();
+        // $date = "2016-09-16 11:00:00";
+        // $datework = Carbon::createFromDate($date);
+        // $now = Carbon::now();
+        // $testdate = $datework->diffInDays($now);
+        // $test=Demande::where('updated_at', date('d-m-y h:i:s'));
+        // dd($testdate);
 
         $admins=User::all()->where('role',1);
         // $adminsEncours=Demande::

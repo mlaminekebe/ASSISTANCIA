@@ -47,7 +47,7 @@ Route::middleware('isAdmin')->group(function () {
 Route::middleware('isAssistancia')->group(function () {
     Route::get('index', [AssistanciaController::class,'nombre'])->middleware('auth');
     Route::get('/users', [AssistanciaController::class,'allUsers']);
-    Route::get('information/{id}',[AssistanciaController::class, 'infoUser']);
+    // Route::get('information/{id}',[AssistanciaController::class, 'infoUser']);
     Route::get('/faireAdmis/{id}',[AssistanciaController::class, 'faireAdmis']);
 });
 
