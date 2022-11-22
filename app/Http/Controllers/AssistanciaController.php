@@ -7,6 +7,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
+
 class AssistanciaController extends Controller
 {
     //permet de retourner le nombre total de traitement dans les toutes les status et tous les administrateur
@@ -46,6 +47,6 @@ class AssistanciaController extends Controller
         $users=User::find($id);
         $users->role=1;
         $users->save();
-        return redirect('/users');
+        return redirect('/users')->with('success','UTLISATEUR DEFINI COMME ADMINISTRATEUR REUSSI');
     }
 }

@@ -58,7 +58,7 @@ class AdimController extends Controller
         $demande->traitement=1;
         $demande->save();
         // return view('listAdmin');
-        return redirect('listAdmin');
+        return redirect('listAdmin')->with('toast_success','vous etes charger de traitee cette reclamation');
     }
     public function show()
     {
@@ -101,7 +101,7 @@ class AdimController extends Controller
         $demande->save();
         // dd($request->motif);
         Mail::to($demande->user)->send(new Rejeter($demande,$request->motif));
-        return redirect('show');
+        return redirect('show')->with('success','reclamation rejeter avec success');
         // dd($demande->objet);
     }
 
@@ -117,7 +117,7 @@ class AdimController extends Controller
         $demande->traitement=2;
         $demande->save();
         Mail::to($demande->user)->send(new Traiter($demande));
-        return redirect('show');
+        return redirect('show')->with('success','DEMANDE TRAITEE AVEC SUCCESS');;
 
     }
 }

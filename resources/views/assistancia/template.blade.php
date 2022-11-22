@@ -12,6 +12,11 @@
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
+        @if (Session('success_message'))
+        <div class="alert alert-success">
+            {{session('success_message')}}
+        </div>
+    @endif
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="index">ASSISTANCIA</a>
@@ -80,6 +85,7 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
         @yield('scrip')
+        @include('sweetalert::alert')
 
     </body>
 </html>

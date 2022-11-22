@@ -1,6 +1,8 @@
 @extends('assistancia.template')
 @section('contenu')
 <main>
+
+
     <div class="container-fluid px-4">
         <h1 class="mt-4">Tables</h1>
         <ol class="breadcrumb mb-4">
@@ -19,6 +21,8 @@
                 <i class="fas fa-table me-1"></i>
                LISTE DE TOUS LES UTILISATEURS
             </div>
+    {{-- <p class="text-success">{{Session::get('message')}}</p> --}}
+
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
@@ -53,7 +57,7 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <a href="faireAdmis/{{$user->id}}">
+                                <a href="faireAdmis/{{$user->id}}" onclick="return confirm('etes vous sur de le definir comme administrateur')">
                                     <button class="btn btn-success">RENDRE AMDIS</button>
 
                                 </a>
@@ -67,6 +71,4 @@
         </div>
     </div>
 </main>
-
-
 @endsection

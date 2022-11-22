@@ -7,6 +7,7 @@ use App\Models\Demande;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+
 class DemandeController extends Controller
 {
     /**
@@ -59,7 +60,7 @@ class DemandeController extends Controller
         // dd($demande->user->email);
         $demande->saveOrFail();
         Mail::to(User::all()->where('role',1))->send(new SendNewTacheMail($demande));
-        return redirect('form/'.$request->user()->id);
+        return redirect('form/'.$request->user()->id)->with('toast_success',"reclamation envoyee avec success");
     }
 
     /**

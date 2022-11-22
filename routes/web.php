@@ -1,4 +1,5 @@
 <?php
+use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;

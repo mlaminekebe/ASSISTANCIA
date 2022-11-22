@@ -84,6 +84,11 @@
                 </div>
             </div>
         </nav>
+        @if (Session('success_message'))
+        <div class="alert alert-success">
+            {{session('success_message')}}
+        </div>
+    @endif
 
 
 
@@ -91,5 +96,7 @@
             @yield('content')
         </main>
     </div>
+    @include('sweetalert::alert')
+
 </body>
 </html>
