@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+Artisan::command('show:parrains', function() {
+
+        // afficher le parti et le nombre de parrains
+        $this->comment('sa marche');
+
+})->purpose("Cette commande permet d'afficher le nombre de parrains de chaque parti...");

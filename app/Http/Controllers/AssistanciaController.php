@@ -13,6 +13,7 @@ class AssistanciaController extends Controller
     //permet de retourner le nombre total de traitement dans les toutes les status et tous les administrateur
     public function nombre(){
         $nbrAttente=Demande::where('traitement', 0)->count();
+        // dd(Carbon::now()->startOfMonth());
         $nbrEncours=Demande::where('traitement', 1)->count();
         $nbrTraitee=Demande::where('traitement', 2)->count();
         $nbrRejetee=Demande::where('traitement', 3)->count();
@@ -22,6 +23,7 @@ class AssistanciaController extends Controller
         // $testdate = $datework->diffInDays($now);
         // $test=Demande::where('updated_at', date('d-m-y h:i:s'));
         // dd($testdate);
+
 
         $admins=User::all()->where('role',1);
         // $adminsEncours=Demande::

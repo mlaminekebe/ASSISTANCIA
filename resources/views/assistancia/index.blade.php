@@ -47,23 +47,43 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-lg-6 shadow-lg">
-                            <div class="card mb-4">
-                                <div class="card-header">
-                                    <i class="fas fa-chart-pie me-1"></i>
-                                    STATISTIQUE
-                                </div>
-                                <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
-                                <div class="card-footer small text-muted">
-                                    <?php
-                                    echo 'DERNIERE MISE A JOURS - ';
-                                        // date_default_timezone_set('Europe/Paris');
-                                        $date = date('D-M-Y h:i:s');
-                                        echo $date;
-                                        ?>
+                        <h3>visulalisation des donnees</h3>
+                        <div class="row ">
+                            <div class="col-lg-6 ">
+                                <div class="card mb-4 shadow-lg">
+                                    <div class="card-header">
+                                        <i class="fas fa-chart-pie me-1"></i>
+                                        DIAGRAMME CIRCULAIRE
+                                    </div>
+                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+                                    <div class="card-footer small text-muted">
+                                        <?php
+                                        echo 'DERNIERE MISE A JOURS - ';
+                                            // date_default_timezone_set('Europe/Paris');
+                                            $date = date('D-M-Y h:i:s');
+                                            echo $date;
+                                            ?>
+                                    </div>
                                 </div>
                             </div>
+
+                                <div class="col-lg-6">
+                                    <div class="card mb-4 shadow-lg">
+                                        <div class="card-header">
+                                            <i class="fas fa-chart-bar me-1"></i>
+                                            DIAGRAMME EN BAR
+                                        </div>
+                                        <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
+                                        <div class="card-footer small text-muted">
+                                            <?php
+                                        echo 'DERNIERE MISE A JOURS - ';
+                                            // date_default_timezone_set('Europe/Paris');
+                                            $date = date('D-M-Y h:i:s');
+                                            echo $date;
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                         <div class="card mb-4 ">
                             <div class="card-header">
@@ -106,7 +126,7 @@
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->email}}</td>
                                              <td>
-                                                <h5><span class="badge bg-success">{{DB::table('demandes')->where('user_admin_id', $admin->id)->count()}}</span></h5>
+                                                <h5><span class="badge bg-success">{{DB::table('demandes')->where('updated_at', '>=', Carbon\Carbon::now()->startOfMonth())->where('user_admin_id', $admin->id)->count()}}</span></h5>
 
 
                                              </td>
@@ -122,6 +142,30 @@
                         </div>
                     </div>
                 </main>
+                @php
+                   $max=0
+                @endphp
+                 @php
+                 if($max<=$nbrAttente)
+                     $max=$nbrAttente
+
+                 @endphp
+                @php
+                    if($max<=$nbrTraitee)
+                        $max=$nbrTraitee
+
+                @endphp
+
+                @php
+                    if($max<=$nbrRejetee)
+                        $max=$nbrRejetee
+
+                @endphp
+                @php
+                    if($max<=$nbrEncours)
+                        $max=$nbrEncours
+
+                @endphp
 
 @endsection
 @section('scrip')
@@ -137,6 +181,53 @@
         }],
     },
     });
+
+</script>
+
+<script>
+    var ctx = document.getElementById("myBarChart");
+var myLineChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ["encours", "rejetee", "en attente", "traitee "],
+    datasets: [{
+      label: "nombre",
+      backgroundColor: "rgba(2,117,216,1)",
+      borderColor: "rgba(2,117,216,1)",
+      data: [{{$nbrEncours}},{{$nbrRejetee}},{{$nbrAttente}}, {{$nbrTraitee}}],
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+
+    }],
+  },
+  options: {
+    scales: {
+      xAxes: [{
+        time: {
+          unit: 'month'
+        },
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          maxTicksLimit: 10
+        }
+      }],
+      yAxes: [{
+        ticks: {
+          min: 0,
+          max: {{$max}},
+          maxTicksLimit:{{$max}}
+        },
+        gridLines: {
+          display: true
+        }
+      }],
+    },
+    legend: {
+      display: false
+    }
+  }
+});
 
 </script>
 @endsection
