@@ -1,7 +1,7 @@
 <x-mail::message>
-nous vous rappelons que cette reclamtion est en cours depuis
+nous vous rappelons que cette reclamation est en cours depuis plus de 2 jours
 
-merci de le traiter le plus rapidement possible
+merci de finaliser le traiter le plus rapidement possible
 
 ## *OBJET:*
 > {{$demande->objet}}

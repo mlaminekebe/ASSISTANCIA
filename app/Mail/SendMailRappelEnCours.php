@@ -31,7 +31,7 @@ class SendMailRappelEnCours extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'taritement en attente',
+            subject: 'taritement en cours',
         );
     }
 

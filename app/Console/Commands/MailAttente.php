@@ -33,7 +33,7 @@ class MailAttente extends Command
     public function handle()
     {
         $subday = Carbon::now()->subDays(2);
-        $demandes = Demande::all()->where('created_at' ,'<' ,$subday)->where('traitement' ,0);
+        $demandes = Demande::all()->where('updated_at' ,'<' ,$subday)->where('traitement' ,0);
         foreach ($demandes as $demande) {
             $this->info("nom: $demande->objet ");
              Mail::to(User::all()->where('role',1))->send(new SendMailRappelEnAttente($demande));

@@ -1,5 +1,5 @@
 <x-mail::message>
-nous vous rappelons que cette reclamtion a ete faite depuis
+nous vous rappelons que cette reclamation a ete faite depuis plus de 2 jours
 
 merci de le traiter si possible
 
