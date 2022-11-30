@@ -6,6 +6,9 @@ merci de finaliser le traiter le plus rapidement possible
 ## *OBJET:*
 > {{$demande->objet}}
 
+{{-- @component('mail::button', ['url' => route('show.show')])
+VOIR
+@endcomponent --}}
 Thanks,<br>
 {{ config('app.name') }}
 </x-mail::message>

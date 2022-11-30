@@ -6,7 +6,7 @@ merci de le traiter si possible
 ## *OBJET:*
 > {{$demande->objet}}
 
-@component('mail::button', ['url' => route('listAdmin')])
+@component('mail::button', ['url' => url('voir/'.$demande->id)])
 VOIR
 @endcomponent
 {{-- <x-mail::button :url="''">

@@ -33,7 +33,7 @@ class MailEncours extends Command
     public function handle()
     {
         $subday = Carbon::now()->subDays(2);
-        $demandes = Demande::all()->where('updated_at' ,'<' ,$subday)->where('traitement' ,1);
+        $demandes = Demande::all()->where('traitement' ,1);
         foreach ($demandes as $demande) {
             $this->info("nom: $demande->objet ");
              Mail::to(User::find($demande->user_admin_id))->send(new SendMailRappelEnCours($demande));

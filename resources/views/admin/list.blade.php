@@ -6,7 +6,7 @@
 <div class="container">
     <a href="show"><button class="btn btn-secondary">liste des traitements en cours</button></a>
     <h4>listes de tous les reclamations</h4>
-    
+
     <p class="text-success">{{Session::get('message')}}</p>
     <table class="table">
 
@@ -28,7 +28,7 @@
 
             <td>
                 <a href="voir/{{$list->id}}" ><button type="button" class="btn btn-primary">VOIR DETAILS</button></a>
-                <a href="consulter/{{$list->id}}"> <button type="button" class="btn btn-success">TRAITER LA RECLAMATION</button> </a>
+                {{-- <a href="consulter/{{$list->id}}"> <button type="button" class="btn btn-success">TRAITER LA RECLAMATION</button> </a> --}}
             </td>
             @endforeach
         </tbody>

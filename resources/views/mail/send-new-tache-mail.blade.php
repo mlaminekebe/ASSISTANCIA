@@ -6,7 +6,7 @@ une reclamation a ete faite
 {{-- *Nom:* __{{$tache->nom}}__ --}}
 {{-- *Description:* __{{$demande->description}}__ --}}
 
-@component('mail::button', ['url' => route('listAdmin')])
+@component('mail::button', ['url' => url('voir/'.$demande->id)])
 VOIR
 @endcomponent
 
