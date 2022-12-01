@@ -96,23 +96,7 @@
               <h2 class="fw-bold mb-5">PAGE D'AUTHENTIFICATION</h2>
               <form method="POST" action="{{ route('login') }}">
                 @csrf
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                {{-- <div class="row">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example1" class="form-control" />
-                      <label class="form-label" for="form3Example1">First name</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="form3Example2" class="form-control" />
-                      <label class="form-label" for="form3Example2">Last name</label>
-                    </div>
-                  </div>
-                </div> --}}
-
-                <!-- Email input -->
+           
                 <div class="form-outline mb-4">
                     <label for="email" class=" col-form-label text-md-end">{{ __('email') }}</label>
 
@@ -126,6 +110,7 @@
                         @enderror
                     </div>
                 </div>
+
 
                 <!-- Password input -->
 

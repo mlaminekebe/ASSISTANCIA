@@ -23,8 +23,8 @@
 <body >
     <div id="app" >
 
-        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm"  id="mainNav">
-            <div class="container px-4 px-lg-5">
+        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm"  id="mainNav" >
+            <div class="container px-4 px-lg-5  shadow-lg">
                 <a class="text-light " style="text-decoration: none" href="/">
                     <h1>ASSISTANCIA</h1></a>
                 <button class="navbar-toggler navbar-toggler-right bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

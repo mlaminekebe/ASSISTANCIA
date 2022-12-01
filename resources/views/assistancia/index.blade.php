@@ -95,7 +95,9 @@
                                     <thead>
                                         <tr>
                                             <th>ordre</th>
+                                            <th>prenom</th>
                                             <th>nom</th>
+                                            <th>numero</th>
                                             <th>email</th>
                                             <th>DEMANDE TRAITEE DANS LE MOIS</th>
                                              {{--<th>Start date</th>
@@ -107,7 +109,9 @@
 
                                         <tr>
                                             <th>ordre</th>
+                                            <th>prenom</th>
                                             <th>nom</th>
+                                            <th>numero</th>
                                             <th>email</th>
                                             <th>DEMANDE TRAITEE DANS LE MOIS</th>
                                             {{--<th>Start date</th>
@@ -124,6 +128,8 @@
                                             <td>{{$i++}}</td>
 
                                             <td>{{$admin->name}}</td>
+                                            <td>{{$admin->nom}}</td>
+                                            <td>{{$admin->numero}}</td>
                                             <td>{{$admin->email}}</td>
                                              <td>
                                                 <h5><span class="badge bg-success">{{DB::table('demandes')->where('updated_at', '>=', Carbon\Carbon::now()->startOfMonth())->where('user_admin_id', $admin->id)->count()}}</span></h5>

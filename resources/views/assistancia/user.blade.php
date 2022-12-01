@@ -4,10 +4,10 @@
 
 
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Tables</h1>
+        <h1 class="mt-4">UTILISATEURS</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item"><a href="index">Dashboard</a></li>
-            <li class="breadcrumb-item active">Tables</li>
+            <li class="breadcrumb-item active">utilisateurs</li>
         </ol>
         <div class="card mb-4">
             <div class="card-body">
@@ -28,7 +28,9 @@
                     <thead>
                         <tr>
                             <th>ordre</th>
+                            <th>prenom</th>
                             <th>nom</th>
+                            <th>numero</th>
                             <th>email</th>
                             <th>definir admin</th>
                             {{--<th>Start date</th>
@@ -38,7 +40,9 @@
                     <tfoot>
                         <tr>
                             <th>odre</th>
+                            <th>prenom</th>
                             <th>nom</th>
+                            <th>numero</th>
                             <th>email</th>
                             <th>definir admin</th>
                             {{-- <th>Age</th>
@@ -55,6 +59,8 @@
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$user->name}}</td>
+                            <td>{{$user->nom}}</td>
+                            <td>{{$user->numero}}</td>
                             <td>{{$user->email}}</td>
                             <td>
                                 <a href="faireAdmis/{{$user->id}}" onclick="return confirm('etes vous sur de le definir comme administrateur')">
