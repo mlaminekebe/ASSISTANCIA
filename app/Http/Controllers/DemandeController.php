@@ -6,6 +6,7 @@ use App\Mail\SendNewTacheMail;
 use App\Models\Demande;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class DemandeController extends Controller
@@ -23,9 +24,9 @@ class DemandeController extends Controller
     }
 
     //voire toute les taches de l'utilisateur connecter
-    public function index2($id)
+    public function index2()
     {
-        $demandes = Demande::all()->where('user_id',$id);
+        $demandes = Demande::all()->where('user_id',Auth::user()->id)->where('role',0);
         return view('demande.formulaire',compact('demandes'));
     }
 

@@ -21,7 +21,7 @@ class isAssistancia
                return redirect('listAdmin');
             }
             if($request->user()->role==0){
-                return redirect('form/'.$request->user()->id);
+                return redirect('form/');
             }
         }
 

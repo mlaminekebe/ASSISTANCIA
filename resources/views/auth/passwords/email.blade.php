@@ -24,7 +24,7 @@
                   backdrop-filter: blur(30px);
                   ">
                 <div class="card-body p-5 shadow-5 text-center">
-                  <h2 class="fw-bold mb-5 text-light">PAGE D'AUTHENTIFICATION</h2>
+                  <h2 class="fw-bold mb-5 text-light">MOT DE PASSE OUBLIE</h2>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}

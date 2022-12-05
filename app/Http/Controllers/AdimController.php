@@ -94,9 +94,9 @@ class AdimController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function sendMailRefus(Request $request)
+    public function sendMailRefus(Request $request, $id)
     {
-        $demande=Demande::find($request->id);
+        $demande=Demande::find($id);
         $demande->traitement=3;
         $demande->save();
         // dd($request->motif);

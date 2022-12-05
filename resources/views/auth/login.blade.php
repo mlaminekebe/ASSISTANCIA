@@ -93,12 +93,12 @@
               backdrop-filter: blur(30px);
               ">
             <div class="card-body p-5 shadow-5 text-center">
-              <h2 class="fw-bold mb-5">PAGE D'AUTHENTIFICATION</h2>
+              <h2 class="fw-bold mb-5 text-white">PAGE D'AUTHENTIFICATION</h2>
               <form method="POST" action="{{ route('login') }}">
                 @csrf
-           
+
                 <div class="form-outline mb-4">
-                    <label for="email" class=" col-form-label text-md-end">{{ __('email') }}</label>
+                    <label for="email" class=" col-form-label text-md-end text-white">{{ __('email') }}</label>
 
                     <div >
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -115,7 +115,7 @@
                 <!-- Password input -->
 
                 <div class="form-outline mb-4">
-                    <label for="password" class="col-form-label text-md-end">{{ __('mot de passe') }}</label>
+                    <label for="password" class="col-form-label text-md-end text-white">{{ __('mot de passe') }}</label>
 
                     <div >
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -133,7 +133,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                            <label class="form-check-label" for="remember">
+                            <label class="form-check-label text-white" for="remember">
                                 {{ __('Remember Me') }}
                             </label>
                         </div>
