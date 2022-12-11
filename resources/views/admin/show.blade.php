@@ -1,19 +1,25 @@
-@extends('layouts.app')
+@extends('admin.template')
+@section('cont1')
+active bg-gradient-info
 
+@endsection
 @section('content')
 <div class="container">
     <h1>RECLAMATION</h1>
-    <div class="card">
-        <h5 class="card-header">{{$demande->objet}}</h5>
+    <div class="card ">
+        <h5 class="card-header text-white bg-primary">{{$demande->user->name.' '.$demande->user->nom}}</h5>
         <div class="card-body">
-          <h4 class="card-title">{{$demande->description}}</h4>
+          <h4 class="card-title">OBJET: <span class="fs-5">{{$demande->objet}}</span></h4>
+          <h4 class="card-title">DATE: <span class="fs-5">{{$demande->updated_at}}</span></h4>
+          <h4 class="card-title">OBJET: <span class="fs-5">{{$demande->objet}}</span></h4>
+          <h4 class="card-title">DESCRIPTION: <span class="fs-5">{{$demande->description}}</span></h4>
           @if ($demande->traitement==0)
 
              <a href="{{url('consulter/'.$demande->id)}}"> <button type="button" class="btn btn-success">TRAITER LA RECLAMATION</button> </a>
 
           @elseif ($demande->traitement==1)
           <button class="btn btn-success">en cours de traitement</button></a>
-          @elseif ($demande->traitement==2 || $demande->traitement==2)
+          @elseif ($demande->traitement==2 || $demande->traitement==3)
           <button class="btn btn-success">deja traitee</button></a>
 
           @endif

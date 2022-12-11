@@ -1,11 +1,11 @@
-@extends('admin.template')
-@section('cont2')
-active bg-gradient-info
-
-@endsection
+@extends('layouts.app')
 @section('content')
 <div class="container">
-
+    {{-- @if (Session('success_message'))
+        <div class="alert alert-success">
+            {{session('success_message')}}
+        </div>
+    @endif --}}
 
     <div class="row">
 
@@ -13,7 +13,8 @@ active bg-gradient-info
             <div class="card bg-warning text-white mb-4 shadow-lg">
                 <div class="card-body">{{$nbrAttente}}</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-
+                    {{-- <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
                     <p>EN ATTENTE</p>
                 </div>
             </div>
@@ -22,7 +23,8 @@ active bg-gradient-info
             <div class="card bg-success text-white mb-4 shadow-lg">
                 <div class="card-body">{{$nbrTraitee}}</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-
+                    {{-- <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
                     <p>DEMANDE TRAITEE</p>
                 </div>
             </div>
@@ -31,7 +33,8 @@ active bg-gradient-info
             <div class="card bg-danger text-white mb-4 shadow-lg">
                 <div class="card-body">{{$nbrRejetee}}</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
-
+                    {{-- <a class="small text-white stretched-link" href="#">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div> --}}
                     <P>DEMANDE REJETEE</P>
                 </div>
             </div>
@@ -52,7 +55,7 @@ active bg-gradient-info
                 $i=1;
             @endphp
             @foreach ($lists as $list)
-            <tr >
+            <tr class="shadow-lg">
             <th scope="row">{{$i++}}</th>
             <td>{{$list->objet}}</td>
 

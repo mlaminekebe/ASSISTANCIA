@@ -39,3 +39,6 @@ Route::middleware('isAssistancia')->group(function () {
     Route::get('/faireAdmis/{id}',[AssistanciaController::class, 'faireAdmis']);
 });
 
+Route::get('template', function () {
+    return view('auth.template');
+});

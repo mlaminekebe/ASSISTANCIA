@@ -99,6 +99,7 @@
                                             <th>nom</th>
                                             <th>numero</th>
                                             <th>email</th>
+                                            <th>total</th>
                                             <th>DEMANDE TRAITEE DANS LE MOIS</th>
                                              {{--<th>Start date</th>
                                             <th>Salary</th> --}}
@@ -113,6 +114,7 @@
                                             <th>nom</th>
                                             <th>numero</th>
                                             <th>email</th>
+                                            <th>total</th>
                                             <th>DEMANDE TRAITEE DANS LE MOIS</th>
                                             {{--<th>Start date</th>
                                            <th>Salary</th> --}}
@@ -131,6 +133,12 @@
                                             <td>{{$admin->nom}}</td>
                                             <td>{{$admin->numero}}</td>
                                             <td>{{$admin->email}}</td>
+                                            <td>
+                                                <h5><span class="badge bg-warning">{{DB::table('demandes')->where('traitement', 1)->where('user_admin_id',$admin->id)->count()}}</span>
+                                                    <span class="badge bg-success">{{DB::table('demandes')->where('traitement', 2)->where('user_admin_id',$admin->id)->count()}}</span>
+                                                    <span class="badge bg-danger">{{DB::table('demandes')->where('traitement', 3)->where('user_admin_id',$admin->id)->count()}}</span>
+                                                </h5>
+                                            </td>
                                              <td>
                                                 <h5><span class="badge bg-success">{{DB::table('demandes')->where('updated_at', '>=', Carbon\Carbon::now()->startOfMonth())->where('user_admin_id', $admin->id)->count()}}</span></h5>
 

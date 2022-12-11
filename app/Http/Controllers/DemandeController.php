@@ -19,7 +19,7 @@ class DemandeController extends Controller
     public function index()
     {
         $lists = Demande::all()->where('traitement',0);
-        return view('admin.list',compact('lists'));
+        return view ('admin.list',compact('lists'));
 
     }
 
@@ -27,7 +27,7 @@ class DemandeController extends Controller
     public function index2()
     {
         $demandes = Demande::all()->where('user_id',Auth::user()->id)->where('role',0);
-        return view('demande.formulaire',compact('demandes'));
+        return view ('demande.formulaire',compact('demandes'));
     }
 
     /**
@@ -35,11 +35,6 @@ class DemandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -61,7 +56,7 @@ class DemandeController extends Controller
         // dd($demande->user->email);
         $demande->saveOrFail();
         Mail::to(User::all()->where('role',1))->send(new SendNewTacheMail($demande));
-        return redirect('form/'.$request->user()->id)->with('toast_success',"reclamation envoyee avec success");
+        return redirect('form/')->with('toast_success',"reclamation envoyee avec success");
     }
 
     /**
@@ -75,37 +70,5 @@ class DemandeController extends Controller
         return view('demande.show',compact('demande'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Demande  $demande
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Demande $demande)
-    {
-        dd($demande->id);
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Demande  $demande
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Demande $demande)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Demande  $demande
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Demande $demande)
-    {
-        //
-    }
 }
