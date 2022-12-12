@@ -32,8 +32,7 @@
     <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
         <div class="sidenav-header">
           <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-          <a class="navbar-brand m-0" href="/" target="_blank">
-            {{-- <img src="../assets/img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo"> --}}
+          <a class="navbar-brand m-0" href="/">
             <span class="ms-1 font-weight-bold text-white">ASSISTANCIA</span>
           </a>
         </div>
@@ -55,8 +54,6 @@
                 </div>
                 <span class="nav-link-text ms-1">LES RECLAMATIONS </span>
               </a>
-
-
           </ul>
         </div>
 
@@ -67,10 +64,10 @@
           <div class="container-fluid py-1 px-3">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="">ADMINISTRATEUR</a></li>
+                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">@yield('nom')</li>
               </ol>
-              <h6 class="font-weight-bolder mb-0">Tables</h6>
+              <h6 class="font-weight-bolder mb-0">@yield('nom')</h6>
             </nav>
             <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
 
@@ -105,12 +102,12 @@
                     <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                   </a>
                 </li>
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
+                {{-- <li class="nav-item dropdown pe-2 d-flex align-items-center">
                   <a href="javascript:;" class="nav-link text-body p-0" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-bell cursor-pointer"></i>
                   </a>
 
-                </li>
+                </li> --}}
               </ul>
             </div>
           </div>
@@ -445,10 +442,20 @@
         </div>
       </div>
   <!--   Core JS Files   -->
+  <footer class="footer position-absolute bottom-2 py-2 w-100">
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2022 - assistancia</div></div>
+</footer>
   <script src="{{asset('js/core/popper.min.js')}}"></script>
   <script src="{{asset('js/core/bootstrap.min.js')}}"></script>
   <script src="{{asset('js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('js/plugins/smooth-scrollbar.min.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+  integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+</script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

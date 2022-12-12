@@ -30,7 +30,6 @@
 
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         @if (Route::has('login'))
-                        {{-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> --}}
                             @auth
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -86,11 +85,11 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-8 align-self-end">
                         <h1 class="text-white font-weight-bold  shadow-lg">BIENVENUE DANS ASSISTANCIA</h1>
-                        <hr class="divider" />
+                        <hr class="divider bg-info" />
                     </div>
                     <div class="col-lg-8 align-self-baseline ">
                         <p class="text-white-75 mb-5  shadow-lg">FAITES VOS RECLAMATIONS FACILEMENT ET NOTRE EQUIPE S'EN CHARGERA RAPIDEMENT DANS LES PLUS BREFS DELAIS</p>
-                        <a class="btn btn-primary btn-xl  shadow-lg" href="index">CONTINUER</a>
+                        <a class="btn btn-info btn-xl  shadow-lg" href="index">CONTINUER</a>
                     </div>
                 </div>
             </div>
@@ -107,10 +106,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{asset('js/scriptss.js')}}"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         @include('sweetalert::alert')
     </body>

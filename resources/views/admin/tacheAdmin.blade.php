@@ -3,6 +3,9 @@
 active bg-gradient-info
 
 @endsection
+@section('nom')
+mes demandes
+@endsection
 @section('content')
 <div class="container">
 

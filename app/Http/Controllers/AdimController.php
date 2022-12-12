@@ -69,7 +69,10 @@ class AdimController extends Controller
     {
         $demandes=Demande::find($id);
         //  dd($demandes);
-        return view('admin.refus',compact('demandes'));
+        if($demandes->user_admin_id == Auth::user()->id){
+            return view('admin.refus',compact('demandes'));
+        }
+        return redirect('show');
 
     }
 

@@ -2,8 +2,12 @@
 @section('content') --}}
 @extends('admin.template')
 @section('cont2')
+
 active bg-gradient-info
 
+@endsection
+@section('nom')
+refus
 @endsection
 @section('content')
 <div class="container" >

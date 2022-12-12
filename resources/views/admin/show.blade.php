@@ -11,7 +11,6 @@ active bg-gradient-info
         <div class="card-body">
           <h4 class="card-title">OBJET: <span class="fs-5">{{$demande->objet}}</span></h4>
           <h4 class="card-title">DATE: <span class="fs-5">{{$demande->updated_at}}</span></h4>
-          <h4 class="card-title">OBJET: <span class="fs-5">{{$demande->objet}}</span></h4>
           <h4 class="card-title">DESCRIPTION: <span class="fs-5">{{$demande->description}}</span></h4>
           @if ($demande->traitement==0)
 

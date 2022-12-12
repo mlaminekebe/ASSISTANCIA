@@ -3,6 +3,9 @@
 active bg-gradient-info
 
 @endsection
+@section('nom')
+les reclamations
+@endsection
 @section('content')
 <div class="card my-4">
     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -27,7 +30,7 @@ active bg-gradient-info
                         $i=1;
                     @endphp
                     @foreach ($lists as $list)
-                    
+
                         <tr>
                             <th scope="row">{{$i++}}</th>
 

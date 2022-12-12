@@ -1,6 +1,5 @@
 @component('mail::message')
 # Nouvelle reclamation - {{$demande->objet}}
-
 une reclamation a ete faite
 
 {{-- *Nom:* __{{$tache->nom}}__ --}}
