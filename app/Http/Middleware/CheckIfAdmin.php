@@ -23,7 +23,7 @@ class CheckIfAdmin
                 return $next($request);
             }
             else{
-                return redirect('/home')->with('message',"access refuser vous n'est pas administrateur");
+                return redirect('/')->with('message',"access refuser vous n'est pas administrateur");
             }
 
         }else{
